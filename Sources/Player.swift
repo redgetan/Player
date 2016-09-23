@@ -103,6 +103,16 @@ public class Player: UIViewController {
         self.setupAsset(asset)
     }
 
+    public var layerBackgroundColor: UIColor? {
+        get {
+            guard let backgroundColor = self.playerView.playerLayer.backgroundColor else { return nil }
+            return UIColor(CGColor: backgroundColor)
+        }
+        set {
+            self.playerView.playerLayer.backgroundColor = newValue?.CGColor
+        }
+    }
+
     public var muted: Bool {
         get {
             return self.player.muted
